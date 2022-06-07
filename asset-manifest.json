@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.js": "/git-pages-one/static/js/main.5ae8551c.js",
+    "main.js": "/git-pages-one/static/js/main.8724b64d.js",
+    "static/media/bite-me.mp3": "/git-pages-one/static/media/bite-me.d91cd2cd6edcb1c83db3.mp3",
     "index.html": "/git-pages-one/index.html",
-    "main.5ae8551c.js.map": "/git-pages-one/static/js/main.5ae8551c.js.map"
+    "main.8724b64d.js.map": "/git-pages-one/static/js/main.8724b64d.js.map"
   },
   "entrypoints": [
-    "static/js/main.5ae8551c.js"
+    "static/js/main.8724b64d.js"
   ]
 }
