@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/git-pages-one/static/css/main.1513b9e1.css",
-    "main.js": "/git-pages-one/static/js/main.e43218d2.js",
+    "main.css": "/git-pages-one/static/css/main.52f7d402.css",
+    "main.js": "/git-pages-one/static/js/main.9f2df1bd.js",
     "static/media/bite-me.mp3": "/git-pages-one/static/media/bite-me.d91cd2cd6edcb1c83db3.mp3",
     "index.html": "/git-pages-one/index.html",
-    "main.1513b9e1.css.map": "/git-pages-one/static/css/main.1513b9e1.css.map",
-    "main.e43218d2.js.map": "/git-pages-one/static/js/main.e43218d2.js.map"
+    "main.52f7d402.css.map": "/git-pages-one/static/css/main.52f7d402.css.map",
+    "main.9f2df1bd.js.map": "/git-pages-one/static/js/main.9f2df1bd.js.map"
   },
   "entrypoints": [
-    "static/css/main.1513b9e1.css",
-    "static/js/main.e43218d2.js"
+    "static/css/main.52f7d402.css",
+    "static/js/main.9f2df1bd.js"
   ]
 }
