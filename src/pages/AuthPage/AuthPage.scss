@@ -1,0 +1,30 @@
+@import '../../global-styles/variables';
+
+.auth-page {
+  min-height: $pageHeight;
+  display: grid;
+  place-items: center;
+  &__body {
+    background-color: $blockBgLight;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+  &-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    &__item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+}
+
+body.darkMode {
+  .auth-page {
+    &__body {
+      background-color: $blockBgDark;
+    }
+  }
+}

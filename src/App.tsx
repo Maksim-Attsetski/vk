@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {FC} from 'react';
+import './global-styles/App.scss';
+import AllRoutes from "./routes/AllRoutes";
 
-const App = () => {
+const App: FC = () => {
     return (
-        <div>
-          worked
-        </div>
+        <AllRoutes/>
     );
 };
 

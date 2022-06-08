@@ -1,0 +1,34 @@
+@import '../../global-styles/variables';
+
+.header {
+  &-account {
+    position: relative;
+
+    &-menu {
+      position: absolute;
+      top: 120%;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      background-color: $blockBgLight;
+      color: $blockColorLight;
+
+      &__item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+
+        span {
+          transform: scale(0.7);
+        }
+      }
+    }
+  }
+}
+
+body.darkMode {
+  .header-account-menu {
+    background-color: $blockBgDark;
+    color: $blockColorDark;
+  }
+}

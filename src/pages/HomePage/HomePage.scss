@@ -1,0 +1,22 @@
+@import '../../global-styles/variables';
+
+.home-page {
+  min-height: calc(100vh - var(--headerHeight));
+  display: grid;
+  place-items: center;
+  &__body {
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+    a {
+      font-size: $textSize;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  &__title {
+    font-size: $titleSize;
+    text-align: center;
+  }
+}

@@ -1,0 +1,84 @@
+@import '../../global-styles/variables';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: $blockBgLight;
+
+  &__body {
+    height: $headerHeight;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__burger {
+    display: none;
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__logo {
+    display: flex;
+    gap: 0.7rem;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  &-account {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+body.darkMode {
+  .header {
+    background-color: $blockBgDark;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+
+    &__burger {
+      display: block;
+    }
+
+    &__menu {
+      position: fixed;
+      top: $headerHeight;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      padding: 1rem;
+      background-color: $blockBgLight;
+      transition: all linear 0.3s;
+
+      &.active {
+        left: 0;
+      }
+    }
+  }
+  body.darkMode {
+    .header {
+      &__menu {
+        background-color: $blockBgDark;
+      }
+    }
+  }
+}

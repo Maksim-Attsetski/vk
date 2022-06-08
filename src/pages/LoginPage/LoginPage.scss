@@ -1,0 +1,35 @@
+@import '../../global-styles/variables';
+
+.login-page {
+  display: grid;
+  place-items: center;
+  margin-bottom: 1rem;
+
+  &__body {
+    background-color: $blockBgLight;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid $mainBgLight;
+    width: 100%;
+  }
+
+  &__title {
+    font-size: $titleSize;
+    margin-bottom: 1rem;
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+}
+
+body.darkMode {
+  .login-page {
+    &__body {
+      background-color: $blockBgDark;
+      border: 1px solid $mainBgDark;
+    }
+  }
+}

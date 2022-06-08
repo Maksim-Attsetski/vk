@@ -1,0 +1,41 @@
+@import '../../global-styles/variables';
+
+.header {
+  &-more {
+    position: relative;
+
+    &-menu {
+      position: absolute;
+      top: 120%;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      background-color: $blockBgLight;
+      color: $blockColorLight;
+
+      &__item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        span {
+          transform: scale(0.7);
+        }
+      }
+    }
+
+    &.active {
+
+      .header-more__icon {
+        transition: all linear 0.35s;
+        transform: rotate(270deg);
+      }
+    }
+  }
+}
+
+body.darkMode {
+  .header-more-menu {
+    background-color: $blockBgDark;
+    color: $blockColorDark;
+  }
+}

@@ -1,0 +1,26 @@
+// params
+$headerHeight: 70px; // height of header
+$pageHeight: calc(100vh - var(--headerHeight));
+$iconsSize: clamp(27px, 7vmin, 35px);
+$titleSize: clamp(24px, 5vw, 35px);
+$textSize: clamp(15px, 3vw, 20px);
+
+// colors
+$iconsColor: #5181b8;
+
+// light
+$blockBgLight: #fff;
+$blockColorLight: #0e0e0e;
+$mainBgLight: #edeef0;
+
+// dark
+$blockBgDark: #292929;
+$blockColorDark: #fff;
+$mainBgDark: #141414;
+$activeElementsDark: #424242;
+
+// for css
+
+:root {
+  --headerHeight: 70px; // height of header
+}
