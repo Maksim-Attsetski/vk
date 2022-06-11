@@ -14,7 +14,6 @@ const themeSlice = createSlice({
     reducers: {
         setCurrentTheme: (state): void => {
             const theme = JSON.parse(localStorage.getItem('darkMode') || 'false')
-            console.log(theme)
             if (!theme) return
 
             document.body.classList.add('darkMode')

@@ -58,20 +58,15 @@ body.darkMode {
     &__menu {
       position: fixed;
       top: $headerHeight;
-      left: -100%;
-      width: 100%;
+      width: 120%;
       height: 100%;
 
+      flex-direction: column;
       align-items: flex-start;
       justify-content: flex-start;
 
       padding: 1rem;
       background-color: $blockBgLight;
-      transition: all linear 0.3s;
-
-      &.active {
-        left: 0;
-      }
     }
   }
   body.darkMode {

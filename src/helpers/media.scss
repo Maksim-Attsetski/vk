@@ -1,0 +1,13 @@
+
+@mixin for-tablet {
+  @media (max-width: 768px) { @content }
+}
+@mixin for-phone {
+  @media (max-width: 380px) { @content }
+}
+@mixin for-laptop {
+  @media (max-width: 990px) { @content }
+}
+@mixin for-pc {
+  @media (min-width: 1400px) { @content }
+}

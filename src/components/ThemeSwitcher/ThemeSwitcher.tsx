@@ -17,7 +17,10 @@ const ThemeSwitcher: FC<IProps> = ({className}) => {
              onClick={() => dispatch(toggleTheme())}
         >
             <div><IoIosColorPalette/></div>
-            <div style={{display: 'flex', gap: 5}}>Тема: <em>{darkMode ? 'тёмная' : 'светлая'}</em></div>
+            <div style={{display: 'flex', gap: 5}}
+                 data-item='burger'
+            >
+                Тема: <em data-item='burger'>{darkMode ? 'тёмная' : 'светлая'}</em></div>
         </div>
     );
 };

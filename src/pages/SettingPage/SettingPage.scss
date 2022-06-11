@@ -1,0 +1,44 @@
+@import '../../global-styles/variables';
+
+.setting-page {
+  display: grid;
+  place-items: center;
+  min-height: $pageHeight;
+
+  &__body {
+    padding: 1rem;
+    border-radius: 1rem;
+    background: $blockBgLight;
+  }
+  &__title {
+    font-size: $titleSize;
+  }
+
+  &-params {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 1rem 0 2rem 0;
+    &__item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    &__text {
+      font-size: $textSize;
+    }
+    button {
+      transform: scale(0.5);
+      &:hover svg {
+        color: #fff;
+      }
+    }
+  }
+}
+
+body.darkMode {
+  .setting-page__body {
+    background-color: $blockBgDark;
+  }
+}

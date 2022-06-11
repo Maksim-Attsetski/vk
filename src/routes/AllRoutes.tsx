@@ -14,12 +14,13 @@ import SignUpPage from "../pages/SignUpPage/SignUpPage";
 import IsAuth from '../components/H-O-C/isAuth';
 import NotFoundedPage from "../pages/NotFoundedPage/NotFoundedPage";
 import AuthPage from "../pages/AuthPage/AuthPage";
+import SettingPage from "../pages/SettingPage/SettingPage";
 
 const AllRoutes = () => {
 
     return (
         <Routes>
-            <Route path={routeNames.HOME} element={<Layout/>}>
+            <Route path={'/'} element={<Layout/>}>
                 <Route path={routeNames.HOME} element={<HomePage/>}/>
                 <Route path={routeNames.NOT_FOUNDED} element={<NotFoundedPage/>}/>
                 <Route path={routeNames.ABOUT_ME + '/:id'} element={<IsAuth><AboutMePage/></IsAuth>}/>
@@ -28,6 +29,7 @@ const AllRoutes = () => {
                 <Route path={routeNames.MESSAGE} element={<IsAuth><MyMessagePage/></IsAuth>}/>
                 <Route path={routeNames.MUSIC} element={<IsAuth><MyMusicPage/></IsAuth>}/>
                 <Route path={routeNames.VIDEO} element={<IsAuth><MyVideoPage/></IsAuth>}/>
+                <Route path={routeNames.SETTING} element={<IsAuth><SettingPage/></IsAuth>}/>
                 <Route path={routeNames.AUTH} element={<AuthPage/>}>
                     <Route path={routeNames.LOG_IN} element={<LoginPage/>}/>
                     <Route path={routeNames.SIGN_UP} element={<SignUpPage/>}/>

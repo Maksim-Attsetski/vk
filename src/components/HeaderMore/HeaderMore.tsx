@@ -12,6 +12,7 @@ import {FaUserFriends} from "react-icons/fa";
 import {BiMessageRoundedDetail} from "react-icons/bi";
 import {HiMusicNote} from "react-icons/hi";
 import {BsCameraVideo} from "react-icons/bs";
+import {useTypedSelector} from "../../hooks/redux";
 
 interface IProps {
     menu: IMenu,
@@ -26,8 +27,9 @@ interface IHeaderMoreLink {
 
 const HeaderMore: FC<IProps> = ({menu, setMenu}) => {
     const headerMore = useRef<HTMLDivElement | null>(null)
+    const {authUser} = useTypedSelector(state => state.authList)
     const headerMoreLinks: IHeaderMoreLink[] = [
-        {text: 'Моя страница', to: routeNames.ABOUT_ME, icon: <VscAccount/>},
+        {text: 'Моя страница', to: `${routeNames.ABOUT_ME}/${authUser.id}`, icon: <VscAccount/>},
         {text: 'Новости', to: routeNames.FEED, icon: <IoNewspaperOutline/>},
         {text: 'Друзья', to: routeNames.FRIENDS, icon: <FaUserFriends/>},
         {text: 'Сообщения', to: routeNames.MESSAGE, icon: <BiMessageRoundedDetail/>},
@@ -53,19 +55,19 @@ const HeaderMore: FC<IProps> = ({menu, setMenu}) => {
              ref={headerMore}
              onClick={toggleMore}
         >
-            <div className="header-more__icon"><CgMoreO/></div>
+            <div className="header-more__icon"><CgMoreO/> <span>Ещё</span></div>
             <AnimatePresence>
                 {menu.more && <motion.ul
                     key={'header-more-menu'}
                     initial={{x: -50, opacity: 0, pointerEvents: 'none',}}
+                    exit={{x: 80, opacity: 0, pointerEvents: 'none',}}
                     animate={{x: 0, opacity: 1, pointerEvents: 'all',}}
-                    exit={{x: 50, opacity: 0, pointerEvents: 'none',}}
                     transition={{type: "spring", stiffness: 70, staggerChildren: 0.3}}
                     className="header-more-menu">
                     {headerMoreLinks.map((link: IHeaderMoreLink) =>
                         <motion.div key={link.to} className={'header-more-menu__item'}>
                             <span>{link.icon}</span>
-                            <NavLink to={link.to}>
+                            <NavLink data-item='burger' to={link.to}>
                                 {link.text}
                             </NavLink>
                         </motion.div>

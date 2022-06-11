@@ -5,6 +5,7 @@ import {routeNames} from "../../routes/routeNames";
 import AnimPage from "../../components/H-O-C/AnimPage";
 
 const HomePage = () => {
+
     return (
         <div className={'home-page'}>
             <AnimPage className="home-page__body">

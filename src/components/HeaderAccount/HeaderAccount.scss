@@ -3,6 +3,14 @@
 .header {
   &-account {
     position: relative;
+    &__icon {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      span {
+        display: none;
+      }
+    }
 
     &-menu {
       position: absolute;
@@ -30,5 +38,11 @@ body.darkMode {
   .header-account-menu {
     background-color: $blockBgDark;
     color: $blockColorDark;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-account__icon span {
+    display: inline;
   }
 }

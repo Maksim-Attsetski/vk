@@ -5,18 +5,15 @@ import {IMenu} from "./Header/Header";
 interface IProps {
     menu: IMenu,
     setMenu: (menu: IMenu) => void,
-    headerMenu: HTMLDivElement | null
 }
 
-const HeaderBurger: FC<IProps> = ({menu, setMenu, headerMenu}) => {
+const HeaderBurger: FC<IProps> = ({menu, setMenu}) => {
 
     const toggleBurger = () => {
         if (menu.burger) {
             setMenu({...menu, burger: false})
-            headerMenu?.classList.remove('active')
             document.body.classList.remove('block')
         } else {
-            headerMenu?.classList.add('active')
             setTimeout(() => {
                 document.body.classList.add('block')
                 setMenu({...menu, burger: true})
@@ -24,6 +21,11 @@ const HeaderBurger: FC<IProps> = ({menu, setMenu, headerMenu}) => {
         }
     }
 
+    window.addEventListener('resize', () => {
+        if (!(window.innerWidth >= 765 && window.innerWidth <= 770) && menu.burger) return
+        setMenu({...menu, burger: false})
+        document.body.classList.remove('block')
+    })
 
     return (
         <div className="header__burger"

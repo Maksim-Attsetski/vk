@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FC, FormEvent, useEffect, useRef, useState} from 'react';
+import React, {ChangeEvent, FC, FormEvent, useEffect, useState} from 'react';
 import './Header.scss';
 import {SiGnusocial} from "react-icons/si";
 import {Link} from "react-router-dom";
@@ -8,6 +8,7 @@ import HeaderAccount from "../HeaderAccount/HeaderAccount";
 import HeaderMore from "../HeaderMore/HeaderMore";
 import {useTypedDispatch, useTypedSelector} from "../../hooks/redux";
 import {themeActions} from "../../redux/slices/ThemeSlice";
+import {motion} from 'framer-motion';
 
 export interface IMenu {
     burger: boolean,
@@ -17,7 +18,6 @@ export interface IMenu {
 
 const Header: FC = () => {
     const {auth} = useTypedSelector(state => state.auth)
-    const authData: boolean = !!localStorage.getItem('auth')
     const [searchValue, setSearchValue] = useState('')
     const [menu, setMenu] = useState<IMenu>({
         burger: false,
@@ -25,7 +25,6 @@ const Header: FC = () => {
         more: false
     })
 
-    const headerMenu = useRef<HTMLDivElement | null>(null)
     const {setCurrentTheme} = themeActions
     const dispatch = useTypedDispatch()
     useEffect(() => {
@@ -39,6 +38,12 @@ const Header: FC = () => {
         setSearchValue('')
     }
 
+    const handleMenuClick = (event: any): void => {
+        const {item} = event?.target?.dataset;
+        if (item !== 'burger') return
+        setMenu({burger: false, account: false, more: false})
+    }
+
     return (
         <header className={'header'}>
             <div className="header__body container">
@@ -46,21 +51,26 @@ const Header: FC = () => {
                     <SiGnusocial/> MaksVkCopy
                 </Link>
 
-                {(auth || authData) &&
-                    <HeaderBurger menu={menu} setMenu={setMenu} headerMenu={headerMenu?.current}/>}
+                {auth && <HeaderBurger menu={menu} setMenu={setMenu}/>}
 
-                {(auth || authData) && <div className="header__menu" ref={headerMenu}>
+                {auth && <motion.div
+                    className={`header__menu ${menu.burger ? 'active' : ''}`}
+                    initial={{right: '-150%'}}
+                    animate={menu.burger ? {right: '-20%',} : {right: '-150%',}}
+                    transition={{type: "spring", duration: 1, stiffness: 70}}
+                    onClick={handleMenuClick}
+                >
                     <form onSubmit={searchFormSubmit} className="header-search">
                         <input
                             value={searchValue}
                             onChange={(event: ChangeEvent<HTMLInputElement>) => setSearchValue(event.target.value)}
-                            type="text"
-                            className="header-search__input input"/>
+                            className="header-search__input input"
+                        />
                     </form>
 
                     <HeaderMore menu={menu} setMenu={setMenu}/>
                     <HeaderAccount menu={menu} setMenu={setMenu}/>
-                </div>}
+                </motion.div>}
             </div>
         </header>
     );

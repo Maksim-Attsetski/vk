@@ -3,6 +3,17 @@
 .header {
   &-more {
     position: relative;
+    z-index: 5;
+
+    &__icon {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      span {
+        display: none;
+      }
+    }
 
     &-menu {
       position: absolute;
@@ -22,14 +33,6 @@
         }
       }
     }
-
-    &.active {
-
-      .header-more__icon {
-        transition: all linear 0.35s;
-        transform: rotate(270deg);
-      }
-    }
   }
 }
 
@@ -37,5 +40,18 @@ body.darkMode {
   .header-more-menu {
     background-color: $blockBgDark;
     color: $blockColorDark;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    &-more {
+      &__icon span {
+        display: inline;
+      }
+      //&-menu {
+      //  top: 10%;
+      //}
+    }
   }
 }
